@@ -1,0 +1,40 @@
+### =========================================================================
+### Voraussetzung: Anwendung läuft mittels `cds watch`  (Port 4004)
+### =========================================================================
+
+### 1) OHNE Anmeldung  ->  erwartet: 401 Unauthorized
+GET http://localhost:4004/odata/v4/product-catalog/Products
+
+
+### 2) MIT Test-Nutzer "viewer"  ->  erwartet: 200 OK
+GET http://localhost:4004/odata/v4/product-catalog/Products
+Authorization: Basic viewer viewer
+
+
+### 3) MIT Test-Nutzer "admin"  ->  erwartet: 200 OK
+GET http://localhost:4004/odata/v4/product-catalog/Products
+Authorization: Basic admin admin
+
+
+### 4) VIEWER versucht zu schreiben  ->  erwartet: 403 Forbidden
+POST http://localhost:4004/odata/v4/product-catalog/Products
+Authorization: Basic viewer viewer
+Content-Type: application/json
+
+{
+  "name": "Heizstab 2 kW",
+  "description": "Von einem Viewer angelegt - sollte scheitern",
+  "price": 59.00
+}
+
+
+### 5) ADMIN schreibt dasselbe  ->  erwartet: 201 Created
+POST http://localhost:4004/odata/v4/product-catalog/Products
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "name": "Heizstab 2 kW",
+  "description": "Von einem Admin angelegt - funktioniert",
+  "price": 59.00
+}

@@ -1,0 +1,4 @@
+ID,name,description,price,createdAt,createdBy,modifiedAt,modifiedBy
+51397989-a67f-43d3-8fdc-58f34de1d728,name-5139798,description-5139798,35093656.17,2006-09-18T23:00:00.000Z,createdBy.325w6@example.org,2021-08-02T23:00:00.000Z,modifiedBy.325w6@example.com
+51397996-db4d-498b-8029-a3d97ed9d308,name-5139799,description-5139799,64248231.13,2008-06-15T23:00:00.000Z,createdBy.325w7@example.com,2012-07-10T23:00:00.000Z,modifiedBy.325w7@example.com
+51398007-1a8a-4952-b18a-a54126b9a9b6,name-5139800,description-5139800,68292328.66,2021-12-02T23:00:00.000Z,createdBy.325w8@example.com,2021-07-06T23:00:00.000Z,modifiedBy.325w8@example.com
