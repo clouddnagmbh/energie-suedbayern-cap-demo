@@ -1,5 +1,38 @@
 {
-  "scopes": [],
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Viewer",
+      "description": "Darf Produkte und Reviews lesen"
+    },
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Darf Produkte und Reviews lesen und ändern"
+    }
+  ],
   "attributes": [],
-  "role-templates": []
+  "role-templates": [
+    {
+      "name": "Viewer",
+      "description": "Lesender Zugriff",
+      "scope-references": ["$XSAPPNAME.Viewer"]
+    },
+    {
+      "name": "Admin",
+      "description": "Voller Zugriff",
+      "scope-references": ["$XSAPPNAME.Viewer", "$XSAPPNAME.Admin"]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "Product-Viewer",
+      "description": "Rollensammlung für lesende Nutzer",
+      "role-template-references": ["$XSAPPNAME.Viewer"]
+    },
+    {
+      "name": "Product-Administrator",
+      "description": "Rollensammlung für Administratoren",
+      "role-template-references": ["$XSAPPNAME.Admin"]
+    }
+  ]
 }

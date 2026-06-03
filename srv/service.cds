@@ -22,16 +22,20 @@ service ProductCatalog @(requires: 'authenticated-user') {
 
     // Viewer: nur lesen
     // Admin: alles ('*' = READ + CREATE + UPDATE + DELETE)
-    entity Products @(restrict: [
-        {
-            grant: 'READ',
-            to   : 'Viewer'
-        },
-        {
-            grant: '*',
-            to   : 'Admin'
-        }
-    ]) as projection on db.Products;
+    // @odata.draft.enabled: aktiviert den Fiori-Bearbeiten-/Anlegen-Flow (Entwurfsmodus)
+    entity Products @(
+        odata.draft.enabled,
+        restrict: [
+            {
+                grant: 'READ',
+                to   : 'Viewer'
+            },
+            {
+                grant: '*',
+                to   : 'Admin'
+            }
+        ]
+    ) as projection on db.Products;
 
     // Viewer: lesen
     // Admin: voller Zugriff
