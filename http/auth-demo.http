@@ -29,6 +29,7 @@ Content-Type: application/json
 
 
 ### 5) ADMIN schreibt dasselbe  ->  erwartet: 201 Created
+# Hinweis: Products ist draft-enabled -> dieser POST legt einen ENTWURF an, kein aktives Produkt
 POST http://localhost:4004/odata/v4/product-catalog/Products
 Authorization: Basic admin admin
 Content-Type: application/json
